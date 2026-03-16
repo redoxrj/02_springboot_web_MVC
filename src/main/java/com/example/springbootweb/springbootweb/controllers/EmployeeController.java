@@ -8,6 +8,8 @@ import com.example.springbootweb.springbootweb.services.EmployeeService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.annotation.Secured;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
@@ -64,7 +66,9 @@ public EmployeeController(EmployeeService employeeService){
     }
 
     @GetMapping
-    public ResponseEntity<List<EmployeeDTO>> getAllEmployees(@RequestParam String name, @RequestParam(required = false,name = "inputAge") Integer age){
+//    @Secured({"ROLE_EMPLOYEE","ROLE_ADMIN"})  // another way of acheiving direct in controllers access
+    @PreAuthorize("hasAnyRole('EMPLOYEE','ADMIN')") // another annotation of spring security annotation --> equal to above method annotation
+    public ResponseEntity<List<EmployeeDTO>> getAllEmployees(@RequestParam(required = false) String name, @RequestParam(required = false,name = "inputAge") Integer age){
 //        return "hello" +" " +"name is "+ name  + " with age " +age;
         return ResponseEntity.ok(employeeService.getAllEmployees(name,age));
     }

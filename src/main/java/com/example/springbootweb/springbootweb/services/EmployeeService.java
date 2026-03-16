@@ -2,10 +2,13 @@ package com.example.springbootweb.springbootweb.services;
 
 import com.example.springbootweb.springbootweb.dto.EmployeeDTO;
 import com.example.springbootweb.springbootweb.entities.EmployeeEntity;
+import com.example.springbootweb.springbootweb.entities.UserEntity;
 import com.example.springbootweb.springbootweb.exceptions.ResourseNotFoundException;
 import com.example.springbootweb.springbootweb.repositories.EmployeeRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.util.ReflectionUtils;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.lang.reflect.Field;
@@ -14,6 +17,7 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+@Slf4j
 @Service
 public class EmployeeService {
 
@@ -44,6 +48,10 @@ public class EmployeeService {
         // If employee exists → convert Entity → DTO,If not → return empty Optional
 //        return employeeEntity.map(employeeEntity1 -> modelMapper.map(employeeEntity1,EmployeeDTO.class) );
         // OR
+        // accessing/geeting current logged-in user details/userId
+//        UserEntity user = (UserEntity) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        log.info(String.valueOf(user));
+
         return  employeeRepository.findById(employeeId).map(employeeEntity -> modelMapper.map(employeeEntity,EmployeeDTO.class) );
 
     }

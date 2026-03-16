@@ -18,7 +18,7 @@ import java.time.LocalDate;
 public class EmployeeEntity {
 
     @Id   // primary key (jis field ke uper ye annotations use kiya ho)
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO) //AUTO in case of h2
     private long id;
     private String name;
     private Boolean isActive;

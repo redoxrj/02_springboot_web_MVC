@@ -11,7 +11,8 @@ import java.time.LocalDate;
 // better to use lombok library intead of writing mnually getters,setters,AllArgsConstrctuor,noArgsCOnsturor  coz more lines of code problem, and also due to serilizatiom string read by jackson of some fields like isActive mappings ki aisi taisi kar deta
 public class EmployeeDTO { // this is all POJO class(plain old java object) genrally used to defined some entities
 
-    private long id;
+//    private long id;
+    private Long id;
 
     @NotBlank(message = "name is required")
     @Size(min = 2,max = 30,message = "name field character's limit : [2,30]")
@@ -114,6 +115,17 @@ public class EmployeeDTO { // this is all POJO class(plain old java object) genr
         this.isActive = isActive;
         this.age = age;
         this.doj = doj;
+    }
+
+    @Override
+    public String toString() {
+        return "EmployeeDTO{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", isActive=" + isActive +
+                ", age=" + age +
+                ", doj=" + doj +
+                '}';
     }
 }
 

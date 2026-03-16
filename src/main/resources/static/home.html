@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body{
+            background:#f4f6f9;
+        }
+
+        /* Navbar */
+        nav{
+            background:#2c3e50;
+            padding:15px;
+        }
+
+        nav ul{
+            display:flex;
+            justify-content:center;
+            list-style:none;
+        }
+
+        nav ul li{
+            margin:0 20px;
+        }
+
+        nav ul li a{
+            color:white;
+            text-decoration:none;
+            font-size:18px;
+            font-weight:bold;
+        }
+
+        nav ul li a:hover{
+            color:#1abc9c;
+        }
+
+        /* Hero Section */
+        .hero{
+            text-align:center;
+            padding:80px 20px;
+        }
+
+        .hero h1{
+            font-size:40px;
+            margin-bottom:20px;
+            color:#333;
+        }
+
+        .hero p{
+            font-size:18px;
+            color:#555;
+            margin-bottom:25px;
+        }
+
+        .btn{
+            padding:12px 25px;
+            background:#1abc9c;
+            color:white;
+            border:none;
+            border-radius:5px;
+            font-size:16px;
+            cursor:pointer;
+        }
+
+        .btn:hover{
+            background:#16a085;
+        }
+
+        /* Footer */
+        footer{
+            margin-top:80px;
+            background:#2c3e50;
+            color:white;
+            text-align:center;
+            padding:15px;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Services</a></li>
+        <li><a href="#">Contact</a></li>
+    </ul>
+</nav>
+
+<section class="hero">
+    <h1>Welcome to OAuth2 Spring boot Security</h1>
+    <p>This is a simple home page created with HTML and CSS.</p>
+    <button class="btn">Get Started</button>
+</section>
+
+<footer>
+    <p>© 2026 My Website | All Rights Reserved</p>
+</footer>
+
+</body>
+</html>
